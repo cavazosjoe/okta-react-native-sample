@@ -18,8 +18,13 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/runtime": "^7.26.0",
-    "@react-native-community/cli": "latest",
     "@react-native-community/eslint-config": "^3.2.0",
+    "@react-native-community/cli": "latest",
+    "@react-native/babel-preset": "0.76.5",
+    "babel-plugin-react-native-web": "0.19.13",
+    "@react-native/eslint-config": "0.76.5",
+    "@react-native/metro-config": "0.76.5",
+    "@react-native/typescript-config": "0.76.5",
     "babel-jest": "^29.7.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.8",
@@ -46,6 +51,18 @@
     ],
     "setupFiles": [
       "./setupJest.js"
+    ],
+    "transform": {
+      "^.+\\.(js)$": ["babel-jest", { "plugins": ["babel-plugin-syntax-hermes-parser"] }],
+      "^.+\\.(ts|tsx)$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
     ]
   }
 }
